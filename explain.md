@@ -1,0 +1,159 @@
+# Week 5: JavaScript Fundamentals - Explain
+
+## File
+
+    01-variable.js
+    02-functions.js
+    03-control-flow.js
+    04-loops.js
+    05-integration.js
+
+### 01-variable.js ผลลัพท์
+
+D:\Work\Lab05-3>node 01-variables.js
+
+=== Variables & Data Types Practice ===
+
+Constants:
+MAX_Users: 100
+PI: 3.14159
+
+Variable (let):
+
+Count after increments: 2
+
+=== Primitive Data Types ===
+Numbers: 25 5.9 -10
+Strings: John Doe
+Booleans: isStudent: true isTeacher: false
+null: null
+undefined: undefined
+
+=== Object Data Types ===
+Array: [ 'apple', 'banana', 'orange' ]
+First fruit: apple
+Array length: 3
+Object: { name: 'John', age: 25, city: 'Bangkok', isStudent: true }
+Person name: John
+Person age: 25
+
+=== typeof Operator ===
+typeof 25: number
+typeof 'hello': string
+typeof true: boolean
+typeof undefined: undefined
+typeof []: object
+typeof {}: object
+typeof (() => {}): function
+
+=== Type Coercion ===
+'5' + 2: 52
+'5' - 2: 3
+'5' \* 2: 10
+true + 1: 2
+
+Explicit coercion:
+String(25): 25
+Number('25'): 25
+Boolean(1): true
+Boolean(0): false
+Boolean(''): false
+Boolean('hello'): true
+
+=== Challenge: Person Object ===
+Student object:
+{
+firstName: 'Alice',
+lastName: 'Smith',
+age: 20,
+gpa: 3.8,
+courses: [ 'HTML', 'CSS', 'JavaScript' ],
+isActive: true,
+getFullName: [Function: getFullName],
+getInfo: [Function: getInfo]
+}
+Full name: Alice Smith
+Info: Alice Smith, Age: 20, GPA: 3.8
+Courses: HTML, CSS, JavaScript
+
+=== Truthy vs Falsy ===
+Falsy values:
+0: false
+"": false
+null: false
+undefined: false
+false: false
+NaN: false
+
+Truthy values:
+1: true
+hello: true
+true: true
+[]: true
+{}: true
+() => {}: true
+
+# ✅ Activity 1 completed!
+
+1.  การประกาศตัวแปร (const vs let)
+    const: ใช้ประกาศค่าคงที่ (Constant) เช่น MAX_Users, PI ซึ่งค่าเหล่านี้จะไม่สามารถเปลี่ยนแปลงได้
+
+let: ใช้ประกาศตัวแปรที่ค่าเปลี่ยนได้ เช่น count เริ่มต้นที่ 0 เมื่อใช้คำสั่ง count++ สองครั้ง ค่าจึงเพิ่มเป็น 2
+
+2. ประเภทข้อมูลพื้นฐาน (Primitive Data Types)
+   Numbers: แสดงตัวเลขทั้งจำนวนเต็ม (25), ทศนิยม (5.9) และติดลบ (-10)
+
+Strings: ใช้ Template Literal (เครื่องหมาย backtick `...`) เพื่อแทรกตัวแปรลงในข้อความได้โดยตรง เช่น ${firstName} ${lastName} ทำให้ได้ผลลัพธ์ "John Doe"
+
+Booleans: แสดงค่าความจริง (true) หรือเท็จ (false)
+
+null & undefined:
+
+null: คือค่าว่างที่ตั้งใจกำหนดให้ว่าง
+
+undefined: คือตัวแปรที่ประกาศแล้วแต่ยังไม่ได้กำหนดค่า (let noValue;)
+
+3. ข้อมูลประเภท Object (Object Data Types)
+   Array: เก็บข้อมูลเป็นชุด การเข้าถึงข้อมูลตัวแรกใช้ index 0 (fruits[0] ได้ "apple") และใช้ .length เพื่อนับจำนวนสมาชิก
+
+Object: เก็บข้อมูลเป็นคู่ Key-Value การเข้าถึงค่าใช้จุด (.) เช่น person.name
+
+4. ตัวดำเนินการ typeof
+   ใช้ตรวจสอบประเภทของข้อมูล สิ่งที่น่าสนใจในส่วนนี้คือ:
+
+typeof [] ได้ผลเป็น "object" (นี่เป็นพฤติกรรมปกติของ JavaScript เพราะ Array ถือเป็น Object ชนิดหนึ่ง)
+
+typeof (() => {}) ได้ผลเป็น "function"
+
+5. การแปลงชนิดข้อมูล (Type Coercion)
+   Implicit (อัตโนมัติ):
+
+'5' + 2: เครื่องหมาย + เมื่อเจอกับ String จะทำการ ต่อข้อความ จึงได้ "52"
+
+'5' - 2 และ '5' \* 2: เครื่องหมายทางคณิตศาสตร์อื่นๆ จะพยายามแปลง String เป็นตัวเลขก่อนคำนวณ จึงได้ 3 และ 10
+
+true + 1: true มีค่าเท่ากับ 1 เมื่อบวก 1 จึงได้ 2
+
+Explicit (ชัดเจน): การใช้ฟังก์ชัน String(), Number(), Boolean() เพื่อบังคับแปลงค่า
+
+6. Challenge: Person Object (Object ที่มี Method)
+   มีการสร้าง Object student ที่มีฟังก์ชันอยู่ข้างใน (เรียกว่า Method)
+
+this keyword: ใน getFullName มีการใช้ this.firstName ซึ่ง this จะอ้างอิงถึงตัว Object student เอง ทำให้ดึงค่า Alice และ Smith มาแสดงได้
+
+.join(", "): ใช้แปลง Array courses ให้เป็น String ข้อความเดียว โดยคั่นด้วยลูกน้ำ
+
+7. Truthy vs Falsy
+   ส่วนนี้แสดงให้เห็นว่าค่าใดบ้างเมื่อถูกแปลงเป็น Boolean แล้วจะเป็นจริงหรือเท็จ:
+
+Falsy (เป็นเท็จ): ได้แก่ 0, "" (ข้อความว่าง), null, undefined, false, NaN
+
+Truthy (เป็นจริง): คือค่าอื่นๆ ที่ไม่ใช่ Falsy รวมไปถึง Array ว่าง [] และ Object ว่าง {} ด้วย (สังเกตว่า [] เป็น true ซึ่งต่างจากบางภาษา)
+
+### 02-functions.js ผลลัพท์
+
+### 03-control-flow.js ผลลัพท์
+
+### 04-loops.js ผลลัพท์
+
+### 05-integration.js ผลลัพท์
